@@ -52,6 +52,7 @@ class HttpHandler extends Thread{
 
             String requestLine = in.readLine();
             String[] s = requestLine.split(" ");
+            System.out.println(s[0] + s[1] + s[2]);
             String httpMethod = s[0];
             String httpPath = s[1];
             if(httpPath.equals("/"))
@@ -60,6 +61,7 @@ class HttpHandler extends Thread{
 
             File file = new File(filePath);
             String mimeType = URLConnection.guessContentTypeFromName(file.getName());
+            System.out.println("----"+mimeType);
             if(mimeType == null)
                 mimeType = "text/html";
 
