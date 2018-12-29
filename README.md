@@ -14,3 +14,21 @@
 * 템플릿 메소드 패턴
 
 ------------------------------------------------------
+## 2018-12-29
+### MiniWebServer 추가 내용 정리
+* HTTP 프로토콜 요청과 응답 메시지 구조
+![HTTP 요청 구조](https://4.bp.blogspot.com/-2x_75s1GrKg/WWhJHtTXK-I/AAAAAAAASl4/kc1Sc73R2OYdA7gJC0sV4rHRqzRx3JUyACLcBGAs/s1600/36.jpg "HTTP 요청 구조") 
+    - 요청라인 / HTTP 헤더 정보 / 헤더 /메시지 바디 (헤더와 메시지 바디 사이에는 한줄로 헤더와 바디를 구분한다.
+    
+![HTTP 요청 예시](https://4.bp.blogspot.com/-LtT5Y2MOtfQ/WWhJ7m9VERI/AAAAAAAASl8/GWSs4qKxdVA0pVQwgBPgXbqZbbps2SdBQCLcBGAs/s1600/37.jpg "HTTP 요청 예시") 
+    - 웹서버를 JAVA로 짤때 GET / HTTP/1.1부분을 분리하여 가지고 온다.
+```
+            String requestLine = in.readLine();
+            String[] s = requestLine.split(" ");
+            System.out.println(s[0] + s[1] + s[2]);
+            String httpMethod = s[0];
+            String httpPath = s[1];
+            if(httpPath.equals("/"))
+                httpPath = "/index.html";
+            String filePath = baseDir + httpPath;
+```
