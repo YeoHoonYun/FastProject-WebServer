@@ -21,6 +21,7 @@
     - 요청라인 / HTTP 헤더 정보 / 헤더 /메시지 바디 (헤더와 메시지 바디 사이에는 한줄로 헤더와 바디를 구분한다.
     
 ![HTTP 요청 예시](https://4.bp.blogspot.com/-LtT5Y2MOtfQ/WWhJ7m9VERI/AAAAAAAASl8/GWSs4qKxdVA0pVQwgBPgXbqZbbps2SdBQCLcBGAs/s1600/37.jpg "HTTP 요청 예시") 
+
     - 웹서버를 JAVA로 짤때 GET / HTTP/1.1부분을 분리하여 가지고 온다.
     
 ```
@@ -38,8 +39,7 @@ String filePath = baseDir + httpPath;
 ![HTTP 응답 구조](https://4.bp.blogspot.com/-GHMzNXCPfPA/WWhNySRbv7I/AAAAAAAASmA/p1vt2-1YhQwsLH5VjzXzpnoiJUyU3_HDgCLcBGAs/s1600/38.jpg "HTTP 응답 구조")
     - 상태라인 / 헤더 / 바디로 구성되어있다.
 
-![HTTP 응답 예시](https://1.bp.blogspot.com/-sCZLESch7Fs/WWhOpMO-eBI/AAAAAAAASmI/USEOWJEpJAIfvrtiPLgfHVDZbODZbEd2QCLcBGAs/s1600/39.jpg "HTTP 응답 예시)
-
+![HTTP 응답 구조](https://1.bp.blogspot.com/-sCZLESch7Fs/WWhOpMO-eBI/AAAAAAAASmI/USEOWJEpJAIfvrtiPLgfHVDZbODZbEd2QCLcBGAs/s1600/39.jpg" "HTTP 응답 구조")
     - 응답의 구조도 HTTP 버전 / 상태 코드 / 응답의 대해서 반응을 하고
     - 응답을 하게 되면 상태코드 + 파일 길이 + 컨텐트 타입을 함께 포함하여 미리 보내고 공백과 함께 파일 정보를 보낸다.
 
