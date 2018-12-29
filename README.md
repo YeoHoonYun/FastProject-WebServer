@@ -44,6 +44,10 @@ String filePath = baseDir + httpPath;
     - 응답을 하게 되면 상태코드 + 파일 길이 + 컨텐트 타입을 함께 포함하여 미리 보내고 공백과 함께 파일 정보를 보낸다.
 
 ```
+fis = new FileInputStream(fullPath);
+File file = new File(fullPath);
+String mimeType= URLConnection.guessContentTypeFromName(file.getName());
+
 out.println("HTTP/1.1 200 OK");
 out.println("Content-Type: " + mimeType);
 out.println("Content-Length: " + file.length());
