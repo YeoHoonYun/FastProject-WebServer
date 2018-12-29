@@ -68,6 +68,7 @@ class WebTead extends Thread{
                 System.out.println("헤더정보 : " + line);
                 stringList.add(line);
             }
+            // 들어온 헤더정보
             String[] strings = stringList.get(0).split( " ");
             String fullPath = "";
             if(strings[0].equals("GET")){
@@ -78,18 +79,23 @@ class WebTead extends Thread{
                 else{
                     fullPath = basePath+strings[1].replace("/","\\");
                 }
-            }
-            System.out.println(fullPath);
-            fis = new FileInputStream(fullPath);
-            File file = new File(fullPath);
-            String mimeType= URLConnection.guessContentTypeFromName(file.getName());
-            int num = 0;
-            out.println("HTTP/1.1 200 OK");
-            out.println("Content-Type: " + mimeType + "; charset=UTF-8");
-            out.println("Content-Length: " + file.length());
-            out.println();
-            while((num=fis.read(buffer)) != -1){
-                out.write(buffer,0,num);
+                fis = new FileInputStream(fullPath);
+                File file = new File(fullPath);
+                String mimeType= URLConnection.guessContentTypeFromName(file.getName());
+
+                if(file.exists()){
+                    out.println("HTTP/1.1 200 OK");
+                    out.println("Content-Type: " + mimeType + "; charset=UTF-8");
+                    out.println("Content-Length: " + file.length());
+                    out.println();
+                    int num = 0;
+                    while((num=fis.read(buffer)) != -1){
+                        out.write(buffer,0,num);
+                    }
+                }
+                else{
+                    out.println("HTTP/1.1 404 Not Found");
+                }
             }
 
         } catch (IOException e) {
