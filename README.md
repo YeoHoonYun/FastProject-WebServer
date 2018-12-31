@@ -53,3 +53,10 @@ out.println("Content-Type: " + mimeType);
 out.println("Content-Length: " + file.length());
 out.println();
 ```
+---------------------------------------------
+## 2018-12-31
+### Chatting Program
+* 블러킹 메소드(입력 받을 때까지 기다리는 메소드)
+* 입력 / 대기 두가지 프로그램이 필요(쓰레드)
+* 공유객체
+* 쓰레드에 세이프하게 만든다.

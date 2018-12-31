@@ -4,7 +4,6 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.util.Scanner;
 
 /**
  * Created by cjswo9207u@gmail.com on 2018-12-30
@@ -31,7 +30,6 @@ public class Client {
             out = new DataOutputStream(socket.getOutputStream());
 
             out.writeUTF("클라이언트가 접속하였습니다.");
-
 
         } catch (IOException e) {
             e.printStackTrace();

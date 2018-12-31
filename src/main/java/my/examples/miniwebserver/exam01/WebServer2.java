@@ -65,7 +65,7 @@ class WebTest extends Thread{
             String[] strings = in.readLine().split(" ");
             String httpRequest = strings[0];
             String httpReqeustPath = strings[1];
-            String basePath = "C:\\users\\user\\Desktop\\HTMLTest";
+            String basePath = "C:\\Users\\cjswo\\OneDrive\\바탕 화면\\HTMLTest";
 
             //HTTP 요청 메시지 출력
             String stringLine = null;
@@ -86,13 +86,15 @@ class WebTest extends Thread{
                 else{
                     contentPath.append(httpReqeustPath);
                 }
-
                 fis = new FileInputStream(contentPath.toString());
-                File file = new File(contentPath.toString());
                 byte[] buffer = new byte[1024];
+                File file = new File(contentPath.toString());
 
                 if(!file.exists()){
+                    System.out.println("Requested File Not Found : ");
                     out.println("HTTP/1.1 404 Not Found");
+                    out.println("Connection: close\\r\\n");
+                    out.println("\\r\\n");
                 }
                 else {
                     String contentType= URLConnection.guessContentTypeFromName(file.getName());
