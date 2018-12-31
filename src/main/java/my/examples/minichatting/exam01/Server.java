@@ -22,6 +22,8 @@ public class Server {
             while(true) {
                 Socket socket = serverSocket.accept();
                 System.out.println("클라이언트가 연결되었습니다.");
+                Room room = new Room("Lobby");
+                roomManger.roomAdd(room);
 
                 ServerHandler serverHandler = new ServerHandler(socket, roomManger);
                 serverHandler.start();

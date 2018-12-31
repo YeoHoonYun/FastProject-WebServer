@@ -27,8 +27,6 @@ public class Client {
             clientHandler.start();
 
             while(true){
-//                Scanner scanner = new Scanner(System.in);
-                System.out.print("내용(/help 도움말) : ");
                 String string = br.readLine();
                 out.writeUTF(string);
                 out.flush();

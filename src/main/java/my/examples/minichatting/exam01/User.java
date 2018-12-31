@@ -25,14 +25,14 @@ public class User {
     }
 
     public Boolean isRoom() {
-        return room;
+        return !room;
     }
 
     public void setRoom(Boolean room) {
         this.room = room;
     }
 
-    public void writeInput(String string){
+    public void writeOutput(String string){
         try {
             out = new DataOutputStream(socket.getOutputStream());
             out.writeUTF(string);
