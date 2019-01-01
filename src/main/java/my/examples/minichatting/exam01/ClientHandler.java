@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.net.Socket;
 
 public class ClientHandler extends Thread{
-    Socket socket = null;
+    private Socket socket = null;
 
     public ClientHandler(Socket socket) {
         this.socket = socket;
