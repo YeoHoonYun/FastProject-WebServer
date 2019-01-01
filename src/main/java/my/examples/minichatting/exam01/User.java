@@ -7,13 +7,16 @@ import java.net.Socket;
 
 public class User {
     private String name;
-    private Boolean room = false;
+    private Boolean room;
     private DataOutputStream out = null;
     private DataInputStream in = null;
     private Socket socket = null;
+    private boolean admin;
 
     public User(Socket socket) {
         this.socket = socket;
+        room = false;
+        admin = false;
     }
 
     public String getName() {
@@ -25,7 +28,7 @@ public class User {
     }
 
     public Boolean isRoom() {
-        return !room;
+        return room;
     }
 
     public void setRoom(Boolean room) {
@@ -76,5 +79,13 @@ public class User {
 
     public void setIn(DataInputStream in) {
         this.in = in;
+    }
+
+    public boolean getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 }

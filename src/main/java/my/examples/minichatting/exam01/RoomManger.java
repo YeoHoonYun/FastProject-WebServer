@@ -1,6 +1,5 @@
 package my.examples.minichatting.exam01;
 
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,10 +19,6 @@ public class RoomManger {
 
     public List<Room> getRoomList() {
         return roomList;
-    }
-
-    public void setRoomList(List<Room> roomList) {
-        this.roomList = roomList;
     }
 
     public Room searchRoom(String name){
@@ -49,21 +44,35 @@ public class RoomManger {
     public void exitUser(Room room, User name){
         Iterator<User> iterator = room.getUserList().iterator();
         while(iterator.hasNext()){
-            if(iterator.next() == name){
+            User user = iterator.next();
+            if(user == name){
+                name.setRoom(false);
                 iterator.remove();
             }
         }
-        if(room.getUserList().size()==0){
+        if(!room.getName().equals("Lobby") & room.getUserList().size()==0){
             roomList.remove(room);
         }
-    }
-    public void joinUser(Room room, User user){
-        room.userAdd(user);
+        else if(!room.getName().equals("Lobby") & name.getAdmin()){
+            name.setAdmin(false);
+            room.getUserList().get(0).setAdmin(true);
+            String content = "방장이 나갔으므로"+room.getUserList().get(0) + "님이 방장이 되었습니다.";
+            this.roomChat(room, content);
+        }
     }
 
-    public void talkUser(Room room, String s){
-        for(User user : room.getUserList()){
-            user.writeOutput(s);
+    public void roomChat(Room room, String content){
+        for (User user1 : room.getUserList()) {
+            try {
+                user1.getOut().writeUTF(content);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                user1.getOut().flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

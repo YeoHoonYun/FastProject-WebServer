@@ -17,13 +17,12 @@ public class Server {
 
         try {
             serverSocket = new ServerSocket(port);
+            roomManger.roomAdd(new Room("Lobby"));
 
             System.out.println("연결을 대기합니다.");
             while(true) {
                 Socket socket = serverSocket.accept();
                 System.out.println("클라이언트가 연결되었습니다.");
-                Room room = new Room("Lobby");
-                roomManger.roomAdd(room);
 
                 ServerHandler serverHandler = new ServerHandler(socket, roomManger);
                 serverHandler.start();
