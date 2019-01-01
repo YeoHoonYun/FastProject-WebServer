@@ -131,6 +131,7 @@ public class ServerHandler extends Thread{
                             roomManger.roomChat(room, exitText);
                             roomManger.exitUser(room, user);
                             roomManger.searchRoom("Lobby").userAdd(user);
+                            user.setAdmin(false);
                             break;
                         } else if (user.getAdmin() & content.indexOf("/kick") == 0) {
                             out.writeUTF("강퇴할 사람의 번호를 입력하세요.");
@@ -153,6 +154,7 @@ public class ServerHandler extends Thread{
                                 String exitText = user1.getName() + "가 " + room.getName() + "에서 강퇴당했습니다.";
                                 roomManger.roomChat(room, exitText);
                                 roomManger.exitUser(room, user1);
+                                user1.setAdmin(false);
                             }catch (Exception e){
                                 out.writeUTF("잘못된 값입니다. 방제목을 입력하세요.");
                                 out.flush();

@@ -53,10 +53,11 @@ public class RoomManger {
         if(!room.getName().equals("Lobby") & room.getUserList().size()==0){
             roomList.remove(room);
         }
-        else if(!room.getName().equals("Lobby") & name.getAdmin()){
+
+        if(!room.getName().equals("Lobby") & name.getAdmin()){
             name.setAdmin(false);
             room.getUserList().get(0).setAdmin(true);
-            String content = "방장이 나갔으므로"+room.getUserList().get(0) + "님이 방장이 되었습니다.";
+            String content = "방장이 나갔으므로"+room.getUserList().get(0).getName() + "님이 방장이 되었습니다.";
             this.roomChat(room, content);
         }
     }
