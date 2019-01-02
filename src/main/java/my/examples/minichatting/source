@@ -76,3 +76,7 @@ git push -u origin master
 
 git remote add origin https://github.com/ITbeginnerYun/FastMiniProject.git
 git push -u origin master
+
+----------------------------------------------------------------------------
+pull = fetch + merge
+commit과 push는 얼마나 자주 해야되는 가?
