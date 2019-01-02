@@ -54,3 +54,15 @@ DataOutputStream
 - writeUTF()
 - readUTF()
 - flush()
+
+-------------------------------------------------------
+협업 프로젝트
+ - 슬랙, 팀즈
+ - SVN, GitHub
+
+GitHub
+ - Master
+ - branch
+ - GitHub에 레파지토리를 등록해서 만들수 있다.
+ - gitignore파일
+ - gitflow 설정
