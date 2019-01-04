@@ -8,41 +8,39 @@ import java.util.List;
  * Github : https://github.com/YeoHoonYun
  */
 public class Box{
-    List<String> stringList;
+    private List<String> list;
 
-    public Box() {
-        this.stringList = new ArrayList<>();
+    public Box(){
+        list = new ArrayList<>();
     }
 
-    public synchronized void Box1() {
-        for(int i = 0; i< 10; i++){
-            System.out.print("A");
-            try {
-                Thread.sleep((int) (Math.random() * 1000));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+    public void methodA(){
+        synchronized (list){
+            for(int i = 1; i< 1000; i++){
+                list.add(i + "");
             }
         }
     }
 
-    public synchronized void Box2(){
-        for(int i = 0; i< 10; i++) {
-            System.out.print("B");
-            try {
-                Thread.sleep((int) (Math.random() * 1000));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+    public void methodB(){
+        synchronized (list){
+            for(int i = 1; i < 1000; i++){
+                try{
+                    list.remove(0);
+                } catch (Exception ignore){
+
+                }
             }
         }
     }
 
-    public synchronized void Box3(){
-        for(int i = 0; i< 10; i++) {
-            System.out.print("C");
-            try {
-                Thread.sleep((int) (Math.random() * 1000));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+    public void methodC(){
+        synchronized (list){
+            for(int x = 0; x < 1000; x++){
+                int size = list.size();
+                for(int i = 0; i < size; i++){
+                    System.out.println(list.get(i));
+                }
             }
         }
     }

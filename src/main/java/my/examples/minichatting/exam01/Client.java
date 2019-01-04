@@ -3,7 +3,7 @@ package my.examples.minichatting.exam01;
 import java.io.*;
 import java.net.Socket;
 
-public class Client {
+public class Client implements Runnable{
     private String ip;
     private int port;
 
@@ -12,7 +12,7 @@ public class Client {
         this.port = port;
     }
 
-    public void connect(){
+    public void run(){
         Socket socket = null;
         DataOutputStream out = null;
         BufferedReader br = null;
@@ -44,7 +44,12 @@ public class Client {
     }
 
     public static void main(String[] args) {
-        Client client = new Client("localhost", 8000);
-        client.connect();
+        int port = 8000;
+        if(args.length > 1){
+            port = Integer.parseInt(args[0]);
+        }
+
+        Client client = new Client("localhost", port);
+        new Thread(client).start();
     }
 }

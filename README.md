@@ -69,3 +69,17 @@ out.println();
    - 쓰레드를 실행하면 누가먼저 실행될지 알수 없다.
    - wait notify???? + 모니터링 락
    - 쓰레드 라이프 사이클
+   
+---------------------------------------------
+## 2019-01-04
+### GitHub
+ - fork, zip 추가
+ - setting / plugin / gitnore(jetBrain, java, maven)
+
+git commit -m "delete folder"
+
+ - 프로그램 아규먼트
+ - checked 인셉션
+ 
+ - 주석은 클래스, 메소드 위(무슨 역할을 하는 지 작성)
+   /*~*/ : Doc 주석문

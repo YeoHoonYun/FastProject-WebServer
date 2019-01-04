@@ -6,15 +6,14 @@ package my.examples.minichatting.ThreadExam;
  */
 public class BoxMain {
     public static void main(String[] args) {
-        Thread Thread01 = new Thread(new BoxThread(1, new Box()));
-        Thread Thread02 = new Thread(new BoxThread(2, new Box()));
-        Thread Thread03 = new Thread(new BoxThread(3, new Box()));
-
-        Thread01.start();
-        Thread02.start();
-        Thread03.start();
-
-        System.out.println("end");
+        Box box = new Box();
+        Thread t1 = new Thread(new BoxThread(box, 1));
+        Thread t2 = new Thread(new BoxThread(box, 2));
+        Thread t3 = new Thread(new BoxThread(box, 3));
+        t1.start();
+        t2.start();
+        t3.start();
+        System.out.println("end!");
 
     }
 }

@@ -5,25 +5,24 @@ package my.examples.minichatting.ThreadExam;
  * Github : https://github.com/YeoHoonYun
  */
 public class BoxThread implements Runnable{
-    private int num;
     private Box box;
+    private int num;
 
-    public BoxThread(int num, Box box) {
-        this.num = num;
+    public BoxThread(Box box, int num){
         this.box = box;
+        this.num = num;
     }
 
     @Override
     public void run() {
         if(num == 1){
-            box.Box1();
+            box.methodA();
         }
-        else if(num ==2){
-            box.Box2();
+        else if(num == 2) {
+            box.methodB();
         }
-        else if(num == 3){
-            box.Box3();
+        else if(num == 3) {
+            box.methodC();
         }
-
     }
 }
