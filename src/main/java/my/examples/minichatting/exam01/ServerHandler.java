@@ -31,6 +31,7 @@ public class ServerHandler extends Thread{
             user.setName(in.readUTF());
             out.flush();
             out.writeUTF("\""+user.getName() + "\"로 설정 되었습니다.");
+            out.flush();
             while(true){
                 if(!user.isRoom()) {
                     while(true) {
